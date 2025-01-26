@@ -139,16 +139,19 @@ body {
 }
 
 .color-picker-menu.open {
-    max-height: 200px;
+    max-height: 300px;
     opacity: 1;
 }
 
 .color-option {
     width: 30px;
     height: 30px;
+    aspect-ratio: 1 / 1;  /* Ensures perfect circular shape */
     border-radius: 50%;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0;
+    padding: 0;
+    display: inline-block;
 }
 
 .color-option:hover {
