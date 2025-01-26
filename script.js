@@ -98,17 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Social bubble interactions
     document.querySelectorAll('.social-bubble').forEach(bubble => {
-        bubble.addEventListener('touchstart', function() {
-            this.classList.add('active');
-        });
-
-        bubble.addEventListener('touchend', function() {
-            this.classList.remove('active');
-            const link = this.getAttribute('data-link');
-            window.open(link, '_blank');
-        });
-
-        bubble.addEventListener('click', function() {
+        bubble.addEventListener('click', function(event) {
+            event.preventDefault(); // Prevent default click behavior
             const link = this.getAttribute('data-link');
             window.open(link, '_blank');
         });
