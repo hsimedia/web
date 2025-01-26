@@ -1,0 +1,175 @@
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+:root {
+    --dark-bg: #121212;
+    --dark-surface: #1E1E1E;
+    --accent-color: #EAB31A;
+    --accent-rgb: 234, 179, 26;
+}
+
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background-color: var(--dark-bg);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    overflow: hidden;
+    touch-action: manipulation;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+.social-container {
+    display: flex;
+    gap: 20px;
+    background-color: var(--dark-surface);
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.social-bubble {
+    width: 100px;
+    height: 100px;
+    background-color: var(--dark-bg);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    tap-highlight-color: transparent;
+    -webkit-tap-highlight-color: transparent;
+}
+
+.social-bubble i {
+    font-size: 40px;
+    color: var(--accent-color);
+    transition: transform 0.3s ease;
+}
+
+.social-bubble:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(var(--accent-rgb), 0.5);
+}
+
+.social-bubble:active {
+    transform: scale(0.9);
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.3);
+}
+
+.footer {
+    position: absolute;
+    bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: "Dancing Script", serif;
+    font-weight: 400;
+}
+
+.heart-icon {
+    animation: pulse 1.5s infinite, shine 2s infinite;
+    color: #FF6B6B;
+    font-size: 1.5rem;
+    text-shadow: 0 0 10px rgba(255,107,107,0.5);
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+}
+
+@keyframes shine {
+    0%, 100% { text-shadow: 0 0 10px rgba(255,107,107,0.5); }
+    50% { text-shadow: 0 0 20px rgba(255,255,255,0.8); }
+}
+
+.color-picker-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+
+.color-picker-toggle {
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-color);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    z-index: 10;
+    position: relative;
+}
+
+.color-picker-toggle i {
+    color: white;
+    font-size: 24px;
+}
+
+.color-picker-menu {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: var(--dark-surface);
+    border-radius: 10px;
+    padding: 10px;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.3s ease, opacity 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+}
+
+.color-picker-menu.open {
+    max-height: 200px;
+    opacity: 1;
+}
+
+.color-option {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.color-option:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 10px rgba(var(--accent-rgb), 0.5);
+}
+
+@media (max-width: 600px) {
+    .social-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .social-bubble {
+        width: 80px;
+        height: 80px;
+    }
+
+    .social-bubble i {
+        font-size: 30px;
+    }
+}
+
